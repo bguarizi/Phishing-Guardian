@@ -51,7 +51,7 @@ Para instalar o projeto, siga estes passos:
 2. Clone o repositório através do comando:
 
     ```bash
-    git clone https://rep.com
+    git clone https://github.com/bguarizi/findphishing.git
     ```
 
     Acesse o repositório baixado:

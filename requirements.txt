@@ -1,0 +1,8 @@
+matplotlib>=3.9.0
+mitmproxy>=10.3.0
+numpy>=1.26.4
+pandas>=2.2.2
+Requests>=2.32.3
+scapy>=2.5.0
+scikit_learn>=1.5.0
+whois>=1.20240129.2

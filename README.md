@@ -65,7 +65,7 @@ Para instalar o projeto, siga estes passos:
    Instale o arquivo requirement.txt através do pip com o seguinte comando:
 
     ```bash
-    pip install -m requirements.txt
+    pip install -r requirements.txt
     ```
 
 4. Adicione a extensão ao seu navegador Google Chrome:

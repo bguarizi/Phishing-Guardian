@@ -21,7 +21,7 @@ urls_ignore = ["chrome://", "127.0.0.1", "localhost"]
 
 seed = 42
 
-data = pd.read_csv("./data_bases/data_base.csv")
+data = pd.read_csv("./d_base/d_base.csv")
 
 x = data[["url_lenght", "is_https", "ip_format", "dot_count", "suspect_char","activate_days","page_rank", "html_input", "certificate", "redirect", "https_text", "caract_hifen", "iframe"]]
 y = data["phishing"]

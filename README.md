@@ -68,7 +68,19 @@ Para instalar o projeto, siga estes passos:
     pip install -r requirements.txt
     ```
 
-4. Adicione a extensão ao seu navegador Google Chrome:
+4. Faça download do Google Chrome:
+
+    Caso ainda não possua o navegador instalado, siga os passos a seguir para realizar a instalação:
+
+    Acesse o site oficial:
+
+    ```bash
+    https://www.google.com/chrome/
+    ```
+
+    Escolha o seu sistema operacional e siga os passos de instalação disponibilizados pelo site.
+
+5. Adicione a extensão ao seu navegador Google Chrome:
 
     Abra seu navegador e acesse:
 
@@ -101,11 +113,24 @@ Após a instalação ter sido realizada corretamente, basta apenas ativar a exec
     Abra o Google Chrome e começe a navegar. 
     Serão emitidos alertas em tempo real sobre as páginas que estão sendo acessadas.
 
-OBS1.: Os alertas podem demorar alguns segundos para serem emitidos. Tenha calma, esta ainda é a versão inicial do projeto!
+OBS1.: Os alertas podem demorar alguns segundos para serem emitidos.
 
 OBS2.: A cada site acessado, um alerta será emitido e você precisará apertar o botão de confirmação.
 
 OBS3: Caso queira desativar os alertas emitidos, basta cancelar a execução do script no terminal e desativar a extensão do navegador acessando novamente "chrome://extensions/" e desativando ou excluindo a extensão.
+
+OBS4.: Caso não tenha sites de phishing para que possa testar, acesse a pasta do projeto em 'findphishing/d_base/phishStats04_07_24.csv'. Este é um arquivo coletado do site da PhishScore no dia 04/07/2024. Levando em consideração que esta não foi uma das bases de dados utilizada no treinamento e teste do classificador, é possível validar as classificações com as URLs contidas nele.
+
+4. Caso queira realizar a coleta atualizada da base de dados da PhishStats para utilização nos testes:
+
+    Acesse o seu navegador e pesquise por:
+
+    ```bash
+    https://phishstats.info/
+    ```
+
+    Na parte de baixo do site você encontrará o "CSV Feed", clique no botão "Go" e realize o download do arquivo csv contendo as URLs classificadas como phishing pela PhishStats.
+
 
 ## Métricas
 

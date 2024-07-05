@@ -1,6 +1,6 @@
 # FindPhishing - Detector de sites de Phishing
 
-Este repositório está vinculado ao artigo "Identificação de Ataques de Phishing através de Machine Learning". O artigo foi publicado no Workshop de Trabalhos de Iniciação Científica e de Graduação da 24º edição do Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais.
+Este repositório está vinculado ao artigo "Identificação de Ataques de Phishing através de Machine Learning". O artigo foi submetido ao Workshop de Trabalhos de Iniciação Científica e de Graduação da 24º edição do Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais.
 
 Este trabalho propõe a elaboração de uma ferramenta que utiliza um classificador Random Forest para análise em tempo real das páginas acessadas pelo usuário através do navegador com o intuito de identificar se a página é legítima ou se tem a possibilidade de ser phishing. A ferramenta possui um algoritmo em Python que hospeda o classificador e realiza a análise da URL da página acessada e uma extensão de navegador que executa a coleta dessas URLs e as envia ao código Python.
 

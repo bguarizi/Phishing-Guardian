@@ -140,7 +140,7 @@ OBS4.: Caso não tenha sites de phishing para que possa testar, acesse a pasta d
 
 Além do código para ser executado, também é disponibilizado o código que mostra os valores finais das métricas do modelo: acurácia, recall, precisão e F1 Score. Além de também mostrar os gráficos de Matriz de Confusão, Validação Cruzada e Coeficiente de Correlação.
 
-Para executá-lo, acesso no terminal a pasta do projeto e digite o seguinte comando:
+Para executá-lo, acesse no terminal a pasta do projeto e digite o seguinte comando:
 
     ```bash
     python accuracy_metrics_analyse.py

@@ -21,7 +21,7 @@ urls_ignore = ["chrome://", "127.0.0.1", "localhost"]
 
 seed = 42
 
-data = pd.read_csv("./d_base/d_base.csv")
+data = pd.read_csv("./data_bases/data_base.csv")
 
 x = data[["url_lenght", "is_https", "ip_format", "dot_count", "suspect_char","activate_days","page_rank", "html_input", "certificate", "redirect", "https_text", "caract_hifen", "iframe"]]
 y = data["phishing"]
@@ -30,7 +30,15 @@ y = data["phishing"]
 X_treino, X_teste, y_treino, y_teste = train_test_split(x, y, train_size=0.85, random_state=seed, shuffle=True, stratify=y)
 
 # Criando o modelo RandomForest
-modelo_rf = RandomForestClassifier(n_estimators=100, random_state=seed)
+modelo_rf = RandomForestClassifier(
+       n_estimators=100,       
+       max_depth=10,           
+       min_samples_split=10,   
+       min_samples_leaf=4,     
+       max_features='sqrt',    
+       bootstrap=True,         
+       random_state=seed,
+       min_impurity_decrease=0.001)
 
 # Treinando o modelo
 modelo_rf.fit(X_treino, y_treino)
@@ -239,6 +247,7 @@ def receive_url():
             ignore = 1
 
     if ignore == 0:
+        start_time = time.time()
 
         valuePageRank = verify_page_rank(url_intercept) #Coleta o page rank
 
@@ -273,13 +282,16 @@ def receive_url():
         # Executa a predição com o modelo (0 = legítimo; 1 = phishing)
         phish = modelo_rf.predict(x)
 
+        end_time = time.time()
+
+        total_time = end_time - start_time
         # Envia a mensagem de volta ao servidor
         if (phish[0] == 1):
             print(f"URL {url_intercept} é suspeita. Aconselhamos que não compartilhe dados ou informações sensíveis.")
-            return jsonify({'message': f'O site acessado através do link {url_intercept} é suspeito. Aconselhamos que não compartilhe dados ou informações sensíveis.'})
+            return jsonify({'message': f'O site acessado através do link {url_intercept} é suspeito. Aconselhamos que não compartilhe dados ou informações sensíveis.\nTempo de análise: {total_time:.2f} segundos'})
         else:
             print(f"URL {url_intercept} foi identificada como navegação segura.")
-            return jsonify({'message': 'NAVEGAÇÃO SEGURA'})
+            return jsonify({'message': f'NAVEGAÇÃO SEGURA\nTempo de análise: {total_time:.2f} segundos'})
 
 if __name__ == '__main__':
     app.run(debug=False)

@@ -10,10 +10,13 @@ import matplotlib.pyplot as plt
 import csv
 import re
 import requests
+import psutil
+
+file_csv = "./teste.csv"
 
 seed = 42
 
-data = pd.read_csv("./d_base/d_base.csv")
+data = pd.read_csv("./data_bases/data_base.csv")
 
 x = data[["url_lenght", "is_https", "ip_format", "dot_count", "suspect_char","activate_days","page_rank", "html_input", "certificate", "redirect", "https_text", "caract_hifen", "iframe"]]
 y = data["phishing"]
@@ -22,20 +25,55 @@ y = data["phishing"]
 X_treino, X_teste, y_treino, y_teste = train_test_split(x, y, train_size=0.85, random_state=seed, shuffle=True, stratify=y)
 
 # Criando o modelo RandomForest
-modelo_rf = RandomForestClassifier(n_estimators=100, random_state=seed)
+modelo_rf = RandomForestClassifier(
+       n_estimators=100,       
+       max_depth=10,           
+       min_samples_split=10,   
+       min_samples_leaf=4,     
+       max_features='sqrt',    
+       bootstrap=True,         
+       random_state=seed,
+       min_impurity_decrease=0.001)
 
-# Treinando o modelo
+# Função para monitorar uso de CPU e RAM
+def monitor_resources():
+    cpu_usage = psutil.cpu_percent(interval=1)
+    ram_usage = psutil.virtual_memory().percent
+    return cpu_usage, ram_usage
+
+start_time = time.time()
+start_cpu, start_ram = monitor_resources()
+
 modelo_rf.fit(X_treino, y_treino)
+
+# Parar temporizador e monitoramento
+end_time = time.time()
+end_cpu, end_ram = monitor_resources()
+
+training_time = end_time - start_time
+print(f"Tempo de treinamento: {training_time:.2f} segundos")
+
+print(f"Uso de CPU (inicial): {start_cpu}%")
+print(f"Uso de RAM (inicial): {start_ram}%")
+print(f"Uso de CPU (final): {end_cpu}%")
+print(f"Uso de RAM (final): {end_ram}%")
+
 
 # Fazendo previsões
 y_pred = modelo_rf.predict(X_teste)
 
+y_pred_treino = modelo_rf.predict(X_treino)
+
+acuracia = accuracy_score(y_treino, y_pred_treino) * 100
+print(f"Acurácia Treino: {acuracia:.2f}%")
+
+print(f"Classification Report Treino: \n {classification_report(y_treino, y_pred_treino, digits=4)}")
+
 # Calculando a acurácia do modelo
 acuracia = accuracy_score(y_teste, y_pred) * 100
-print(f"Acurácia: {acuracia:.2f}%")
+print(f"Acurácia Teste: {acuracia:.2f}%")
 
-#Classification report contendo todas as métricas
-print(f"Classification Report: \n {classification_report(y_teste, y_pred)}")
+print(f"Classification Report Teste: \n {classification_report(y_teste, y_pred, digits=4)}")
 
 y_new = data[["phishing", "url"]]
 
@@ -51,8 +89,8 @@ plt.grid(visible=True,zorder=1)
 plt.ylabel('Coeficiente de Correlação')
 plt.xticks(["A1", "A2", "A3", "A4", "A5","A6","A7", "A8", "A9", "A10", "A11", "A12", "A13"])
 plt.xlabel('Variáveis de Entrada')
-plt.title('Coeficiente de Correlação entre variáveis de entrada e as classes de saída')
-plt.show()
+plt.title('Coeficiente de Correlação entre variáveis de entrada a as classes de saída')
+plt.show()  
 
 nfolds = 10
 scoring = 'accuracy'
@@ -67,16 +105,18 @@ scores = cross_val_score(modelo_rf,
 ax = plt.axes()
 ax.plot(scores,'ro-')
 ax.set_xticks(range(nfolds),labels=range(1,nfolds+1))
-ax.set(title='Acurácia Média =' + f'{100*np.mean(scores):.1f}' + '%',
+ax.set(title='Acurácia Média =' + f'{100*np.mean(scores):.2f}' + '%',
        xlabel='Divisão', 
        ylabel='Acurácia',
        xlim=[0,nfolds-1])
-ax.grid(visible=True)
-plt.show()
+ax.grid(visible=True) 
 
 cm = confusion_matrix(y_teste, y_pred)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm)
 
-disp.plot()
-plt.show()                      
+
+plt.show()
+
+# disp.plot()
+# plt.show()                      
 

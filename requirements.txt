@@ -6,3 +6,4 @@ Requests>=2.32.3
 scapy>=2.5.0
 scikit_learn>=1.5.0
 whois>=1.20240129.2
+psutil>=6.0.0

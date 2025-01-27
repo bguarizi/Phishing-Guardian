@@ -19,7 +19,7 @@ file_csv = "./teste.csv"
 
 urls_ignore = ["chrome://", "127.0.0.1", "localhost"]
 
-seed = 42
+seed = 100
 
 data = pd.read_csv("./data_bases/data_base.csv")
 
@@ -31,14 +31,14 @@ X_treino, X_teste, y_treino, y_teste = train_test_split(x, y, train_size=0.85, r
 
 # Criando o modelo RandomForest
 modelo_rf = RandomForestClassifier(
-       n_estimators=100,       
-       max_depth=10,           
-       min_samples_split=10,   
-       min_samples_leaf=4,     
+       n_estimators=100,  
+       criterion='gini',               
+       min_samples_split=2,   
+       min_samples_leaf=1,     
        max_features='sqrt',    
        bootstrap=True,         
        random_state=seed,
-       min_impurity_decrease=0.001)
+       min_impurity_decrease=0.00001)
 
 # Treinando o modelo
 modelo_rf.fit(X_treino, y_treino)

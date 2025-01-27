@@ -17,8 +17,8 @@ file_csv = "./teste.csv"
 seed = 100
 
 data = pd.read_csv("./data_bases/data_base.csv")
-
-x = data[["url_lenght", "is_https", "ip_format", "dot_count", "suspect_char","activate_days","page_rank", "html_input", "certificate", "redirect", "https_text", "caract_hifen", "iframe"]]
+#Remoção dos atributos: A3, A5 e A10
+x = data[["url_lenght", "is_https", "dot_count","activate_days","page_rank", "html_input", "certificate", "https_text", "caract_hifen", "iframe"]]
 y = data["phishing"]
 
 # Dividindo os dados em conjuntos de treino e teste
@@ -83,11 +83,12 @@ dataframe = np.concatenate([x,y_new],axis=1)
 
 CORRCOEF = np.corrcoef(dataframe,rowvar=False)
 
+#Remoção dos atributos: A3, A5 e A10
 plt.figure()
-plt.bar(x=["A1", "A2", "A3", "A4", "A5","A6","A7", "A8", "A9", "A10", "A11", "A12", "A13"], height=CORRCOEF[:-1,-1], zorder=2)
+plt.bar(x=["A1", "A2", "A4", "A6","A7", "A8", "A9", "A11", "A12", "A13"], height=CORRCOEF[:-1,-1], zorder=2)
 plt.grid(visible=True,zorder=1)
 plt.ylabel('Coeficiente de Correlação')
-plt.xticks(["A1", "A2", "A3", "A4", "A5","A6","A7", "A8", "A9", "A10", "A11", "A12", "A13"])
+plt.xticks(["A1", "A2", "A4", "A6","A7", "A8", "A9", "A11", "A12", "A13"])
 plt.xlabel('Variáveis de Entrada')
 plt.title('Coeficiente de Correlação entre variáveis de entrada a as classes de saída')
 plt.show()  
@@ -117,6 +118,6 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm)
 
 plt.show()
 
-disp.plot()
-plt.show()                      
+# disp.plot()
+# plt.show()                      
 

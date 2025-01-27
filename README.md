@@ -1,8 +1,10 @@
 # FindPhishing - Detector de sites de Phishing
 
-Este repositório está vinculado ao artigo "Identificação de Ataques de Phishing através de Machine Learning". O artigo foi submetido ao Workshop de Trabalhos de Iniciação Científica e de Graduação da 24º edição do Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais.
+Este repositório está vinculado ao artigo e ao TCC apresentado ao Cefet/RJ "Identificação de Ataques de Phishing através de Machine Learning". O artigo foi submetido ao Workshop de Trabalhos de Iniciação Científica e de Graduação da 24º edição do Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais e o TCC foi apresentado para obtenção do título de Bacharel em Engenharia da Computação.
 
-Este trabalho desenvolve uma ferramenta baseada em Random Forest para analisar o tráfego do usuário no navegador, identificando sites de phishing e emitindo alertas em tempo real. Com 97,81% de acurácia, o classificador foi integrado a uma extensão que coleta e classifica URLs em tempo real, alertando o usuário sobre sites maliciosos.
+Este trabalho desenvolve uma ferramenta baseada em Random Forest para analisar o tráfego do usuário no navegador, identificando sites de phishing e emitindo alertas em tempo real. Para o artigo apresentado na SBSeg, o resultado final foi 97,81% de acurácia, entretando, com melhorias implementadas para o TCC, o algoritmo atingiu 99,38%. 
+
+O classificador foi integrado a uma extensão que coleta e classifica URLs em tempo real, alertando o usuário sobre sites maliciosos.
 
 ## Tópicos
 
@@ -147,8 +149,8 @@ Além do código para ser executado, também é disponibilizado o código que mo
     python accuracy_metrics_analyse.py
     ```
 
-2. Para verificar os resultados obtidos com a base de dados coletada em Souza et al., execute o seguinte comando:
+2. Para verificar os resultados obtidos com a remoção dos atributos A3, A5 e A10:
 
     ```bash
-    python souza_accuracy_metrics_analyse.py
+    python accuracy_metrics_analyse_remove.py
     ```

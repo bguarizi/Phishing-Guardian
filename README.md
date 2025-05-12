@@ -9,8 +9,50 @@ O classificador foi integrado a uma extensão que coleta e classifica URLs em te
 ## Tópicos
 
 - [Instalação](#instalação)
-- [Uso](#uso)
-- [Métricas](#metricas)
+- [Teste Mínimo](#uso)
+- [Experimentos](#metricas)
+
+O repositório encontra-se de forma que contém os arquivos Python necessários para reprodução das métricas (metrics.py) e utilização da ferramenta gerada (code_analyze_trafic.py), além de possuir o arquivo de requirements para instalação das bibliotecas necessárias para execução do projeto. O repositório também conta com a pasta "url-collector-extension" que contém a extensão de navegador criada e as pastas que armazenam as bases de dados utilizadas.
+
+## Selos Considerados
+
+    - Selo D - Artefatos Disponíveis: Os códigos, juntamente com um arquivo README.md estão disponíveis em um repositório público no GitHub;
+    - Selo F - Artefatos Funcionais: Os códigos disponibilizados podem ser executados e os tutoriais de execução se encontram presentes no arquivo README.md;
+    - Selo R - Artefatos Reprodutíveis: Os dados fornecidos no artefato são passíveis de reprodução através dos códigos disponibilizados através do repositório do GitHub.
+
+## Informações básicas
+
+Para reprodução da ferramenta será necessário que o usuário possua o Python instalado, preferencialmente, na versão mais recente no momento da utilização. As bibliotecas utilizadas estão no arquivo "requirements.txt" para instalação, sendo elas:
+
+matplotlib
+mitmproxy
+numpy
+pandas
+Requests
+scapy
+scikit_learn
+whois
+psutil
+memory-profiler
+xgboost
+
+O usuário precisará acessar o terminal, instalar as bibliotecas com o requirements.txt e iniciar a execução do arquivo "code_analyse_trafic.py". Também será necessário importar a extensão de navegador no Google Chrome (ferramenta disponivel apenas para esse navegador) e mantê-la ativa. O passo a passo de instalação descreve como isto poderá ser executado.
+
+## Dependências
+
+As dependências necessárias para a execução da ferramenta incluem possuir instalado a linguagem de programação Python e as bibliotecas descritas anteriormente. Abaixo, estão descritas as versões de cada biblioteca utilizada:
+
+matplotlib: 3.9.0
+mitmproxy: 10.3.0
+numpy: 1.26.4
+pandas: 2.2.2
+Requests: 2.32.3
+scapy: 2.5.0
+scikit_learn: 1.5.0
+whois: 1.20240129.2
+psutil: 6.0.0
+memory-profiler: 0.61.0
+xgboost: 3.0.0
 
 ## Instalação
 

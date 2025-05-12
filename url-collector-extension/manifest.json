@@ -1,18 +1,24 @@
 {
     "manifest_version": 2,
-    "name": "URL Collector",
-    "version": "1.0",
+    "name": "Phishing Guardian Extension",
+    "version": "3.0",
     "permissions": [
         "tabs",
-        "activeTab"
+        "activeTab",
+        "scripting",
+        "webNavigation"
+    ],
+    "host_permissions": [
+        "<all_urls>"
     ],
     "background": {
-        "scripts": ["background.js"]
+        "service_worker": "background.js"
     },
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": ["content.js"]
+            "js": ["content.js"],
+            "css": ["styles.css"]
         }
     ],
     "browser_action": {

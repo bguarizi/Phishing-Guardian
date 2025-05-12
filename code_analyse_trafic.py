@@ -290,10 +290,10 @@ def receive_url():
         # Envia a mensagem de volta ao servidor
         if (phish[0] == 1):
             print(f"URL {url_intercept} é suspeita. Aconselhamos que não compartilhe dados ou informações sensíveis.")
-            return jsonify({'message': f'O site acessado através do link {url_intercept} é suspeito. Aconselhamos que não compartilhe dados ou informações sensíveis.\nTempo de análise: {total_time:.2f} segundos'})
+            return jsonify({'message': f'O site acessado através do link {url_intercept} é suspeito. Aconselhamos que não compartilhe dados ou informações sensíveis.\nTempo de análise: {total_time:.2f} segundos', 'type': '1'})
         else:
             print(f"URL {url_intercept} foi identificada como navegação segura.")
-            return jsonify({'message': f'NAVEGAÇÃO SEGURA\nTempo de análise: {total_time:.2f} segundos'})
+            return jsonify({'message': f'NAVEGAÇÃO SEGURA\nTempo de análise: {total_time:.2f} segundos', 'type': '0'})
 
 if __name__ == '__main__':
     app.run(debug=False)

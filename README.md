@@ -1,8 +1,8 @@
-# FindPhishing - Detector de sites de Phishing
+# Phishing Guardian - Detector de sites de Phishing
 
-Este repositório está vinculado ao artigo e ao TCC apresentado ao Cefet/RJ "Identificação de Ataques de Phishing através de Machine Learning". O artigo foi submetido ao Workshop de Trabalhos de Iniciação Científica e de Graduação da 24º edição do Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais e o TCC foi apresentado para obtenção do título de Bacharel em Engenharia da Computação.
+Este repositório está vinculado ao artigo submetido ao SBSeg 2025 "Phishing Guardian: Detecção de sites de phishing com Machine Learing". O artigo foi submetido à Trilha Principal da 25º edição do Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais.
 
-Este trabalho desenvolve uma ferramenta baseada em Random Forest para analisar o tráfego do usuário no navegador, identificando sites de phishing e emitindo alertas em tempo real. Para o artigo apresentado na SBSeg, o resultado final foi 97,81% de acurácia, entretando, com melhorias implementadas para o TCC, o algoritmo atingiu 99,38%. 
+O phishing permanece como uma das ameaças cibernéticas de maior impacto financeiro e social. Este trabalho investiga a eficácia de técnicas de Machine Learning na detecção de URLs maliciosas, abordando lacunas relacionadas a bases de dados desatualizadas, medição de latência “in-browser” e comparações sistemáticas entre algoritmos leves. Utiliza-se um corpus híbrido de 50 261 URLs (55,5\% maliciosas) coletado de fontes públicas e varredura ativa. São extraídos 220 atributos léxicos, de rede e de conteúdo; em seguida, Random Forest, XGBoost e SVM são treinados com validação cruzada estratificada 10 × 1 e quantização pós-treinamento. O XGBoost alcança 99,51\% de acurácia com latência média de 32 ms em execução local via WebAssembly, atendendo ao requisito de resposta em tempo real. Como contribuição prática, disponibilizamos publicamente a base de dados, o código-fonte e uma extensão de navegador que exibe alertas não intrusivos, fomentando reprodutibilidade e adoção pela comunidade de segurança.
 
 O classificador foi integrado a uma extensão que coleta e classifica URLs em tempo real, alertando o usuário sobre sites maliciosos.
 
@@ -57,13 +57,13 @@ Para instalar o projeto, siga estes passos:
 2. Clone o repositório através do comando:
 
     ```bash
-    git clone https://github.com/bguarizi/findphishing.git
+    git clone https://github.com/bguarizi/phishing-guardian.git
     ```
 
     Acesse o repositório baixado:
 
     ```bash
-    cd findphishing/
+    cd phishing-guardian/
     ```
 
 3. Faça a instalação das bibliotecas necessárias:
@@ -141,16 +141,12 @@ OBS4.: Caso não tenha sites de phishing para que possa testar, acesse a pasta d
 
 ## Métricas
 
-Além do código para ser executado, também é disponibilizado o código que mostra os valores finais das métricas do modelo: acurácia, recall, precisão e F1 Score. Além de também mostrar os gráficos de Matriz de Confusão, Validação Cruzada e Coeficiente de Correlação.
+Além do código para ser executado, também é disponibilizado o código que mostra os valores finais das métricas do modelo: acurácia, recall, precisão e F1 Score. Além de também mostrar o gráfico de Coeficiente de Correlação.
 
 1. Para executá-lo, acesse no terminal a pasta do projeto e digite o seguinte comando:
 
     ```bash
-    python accuracy_metrics_analyse.py
+    python metrics.py
     ```
 
-2. Para verificar os resultados obtidos com a remoção dos atributos A3, A5 e A10:
-
-    ```bash
-    python accuracy_metrics_analyse_remove.py
-    ```
+2. E selecione a opção desejada.

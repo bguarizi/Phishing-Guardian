@@ -25,15 +25,25 @@ O repositório encontra-se de forma que contém os arquivos Python necessários 
 Para reprodução da ferramenta será necessário que o usuário possua o Python instalado, preferencialmente, na versão mais recente no momento da utilização. As bibliotecas utilizadas estão no arquivo "requirements.txt" para instalação, sendo elas:
 
 matplotlib
+
 mitmproxy
+
 numpy
+
 pandas
+
 Requests
+
 scapy
+
 scikit_learn
+
 whois
+
 psutil
+
 memory-profiler
+
 xgboost
 
 O usuário precisará acessar o terminal, instalar as bibliotecas com o requirements.txt e iniciar a execução do arquivo "code_analyse_trafic.py". Também será necessário importar a extensão de navegador no Google Chrome (ferramenta disponivel apenas para esse navegador) e mantê-la ativa. O passo a passo de instalação descreve como isto poderá ser executado.

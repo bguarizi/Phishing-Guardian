@@ -42,17 +42,17 @@ O usuário precisará acessar o terminal, instalar as bibliotecas com o requirem
 
 As dependências necessárias para a execução da ferramenta incluem possuir instalado a linguagem de programação Python e as bibliotecas descritas anteriormente. Abaixo, estão descritas as versões de cada biblioteca utilizada:
 
-matplotlib: 3.9.0
-mitmproxy: 10.3.0
-numpy: 1.26.4
-pandas: 2.2.2
-Requests: 2.32.3
-scapy: 2.5.0
-scikit_learn: 1.5.0
-whois: 1.20240129.2
-psutil: 6.0.0
-memory-profiler: 0.61.0
-xgboost: 3.0.0
+- matplotlib: 3.9.0
+- mitmproxy: 10.3.0
+- numpy: 1.26.4
+- pandas: 2.2.2
+- Requests: 2.32.3
+- scapy: 2.5.0
+- scikit_learn: 1.5.0
+- whois: 1.20240129.2
+- psutil: 6.0.0
+- memory-profiler: 0.61.0
+- xgboost: 3.0.0
 
 ## Instalação
 
@@ -164,7 +164,7 @@ Após a instalação ter sido realizada corretamente, basta apenas ativar a exec
 
 OBS1.: Os alertas podem demorar alguns segundos para serem emitidos.
 
-OBS2.: A cada site acessado, um alerta será emitido e você precisará apertar o botão de confirmação.
+OBS2.: A cada site acessado, um alerta será emitido e este sumirá sozinho após alguns segundos.
 
 OBS3: Caso queira desativar os alertas emitidos, basta cancelar a execução do script no terminal e desativar a extensão do navegador acessando novamente "chrome://extensions/" e desativando ou excluindo a extensão.
 
